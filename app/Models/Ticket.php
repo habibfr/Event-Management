@@ -10,12 +10,12 @@ class Ticket extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id', 'event_id', 'payment_method', 'payment_status', 'paid_at', 'receipt_of_payment',
+        'participant_id', 'event_id', 'payment_method', 'payment_status', 'paid_at', 'receipt_of_payment',
     ];
 
-    public function user()
+    public function participant()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Participant::class);
     }
 
     public function event()
@@ -27,5 +27,4 @@ class Ticket extends Model
     {
         return $this->hasMany(Checkin::class);
     }
-
 }

@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name', 'email', 'password', 'nik', 'phone', 'address', 'role',
+        'name', 'email', 'password', 'role',
     ];
 
     /**
@@ -31,9 +31,9 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    public function tickets()
+    public function participant()
     {
-        return $this->hasMany(Ticket::class);
+        return $this->hasOne(Participant::class);
     }
 
     /**
